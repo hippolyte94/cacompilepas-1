@@ -32,6 +32,7 @@ class LobbyController extends AbstractController
             'visibility',
             'coursesheet',
             'getByHashtag',
+            'Creation',
         ]);
     }
 
@@ -55,6 +56,9 @@ class LobbyController extends AbstractController
 
                     case 'consult':
                         $result = $this->getModel()->getLobbyById($idLobby);
+                        break;
+                    case 'Creation':
+                        $result = $this->getModel()->newLobby();
                         break;
                 }
             }

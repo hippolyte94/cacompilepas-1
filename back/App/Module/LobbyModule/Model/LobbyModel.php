@@ -8,6 +8,7 @@ use App\Exception\JSONException;
 use App\Model\AbstractModel;
 use App\Module\ConnectionModule\Model\ConnectionModel;
 use Firebase\JWT\JWT;
+use phpDocumentor\Reflection\Types\Boolean;
 
 
 class LobbyModel extends AbstractModel
@@ -105,6 +106,18 @@ class LobbyModel extends AbstractModel
         $this->updateLobby($idLobby, ['logo' => $fileName]);
         return $oldLogo;
     }
+
+    public function newLobby(string $labelLobby , string $description , Boolean $privateOrNot): string
+    {
+       $result =  $this->send_query('INSERT INTO ccp_lobby VALUES (?,?,?,?)', [$labelLobby,$description,'testEnAttendantDeRajouterLesUploads',$privateOrNot]);
+       if ($result){
+           return 'lobby Creer avec succés ! ';
+       }
+       else{
+           return 'echec creation lobby';
+       }
+    }
+
 
     public function updateLogo(int $idLobby, string $fileName, string $tmpName): array
     {
