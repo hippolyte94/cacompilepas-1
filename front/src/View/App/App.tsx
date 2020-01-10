@@ -15,6 +15,7 @@ import Admin from '../Admin/Admin';
 import PublicLobbies from "../Public/PublicLobbies";
 import CourseSheetPage from "../Pages/CourseSheetPage";
 import Personal from "../Pages/Personal";
+import Inscription from "../Pages/Inscription";
 
 class App extends React.Component {
     public render(): ReactNode {
@@ -30,6 +31,9 @@ class App extends React.Component {
                         <PrivateRoute path={'/coursesheet'} component={CourseSheetPage} rest={[]}/>
                         <Route path={'/connexion'}>
                             <Connection/>
+                        </Route>
+                        <Route path={'/Inscription'}>
+                            <Inscription/>
                         </Route>
                         <PrivateRoute path={'/admin'} component={Admin} rest={[]}/>
                         <Route path={'/public'}>
