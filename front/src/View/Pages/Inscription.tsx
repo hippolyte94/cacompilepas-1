@@ -7,15 +7,15 @@ class Inscription extends React.Component{
     private email: string;
     private password: string;
     private passwordConfirmation: string;
-    private firstName: string;
-    private name: string;
+    private prenom: string;
+    private nom: string;
     private pseudo: string;
     private passwordValid: boolean;
 
     constructor(props: any) {
         super(props);
-        this.firstName = '';
-        this.name = '';
+        this.prenom = '';
+        this.nom = '';
         this.pseudo = '';
         this.email = '';
         this.password = '';
@@ -51,12 +51,12 @@ class Inscription extends React.Component{
         this.passwordVerification();
     }
 
-    public handleFirstnameChange (event: ChangeEvent<HTMLInputElement>) : void {
-        this.firstName = event.target.value;
+    public handlePrenomChange (event: ChangeEvent<HTMLInputElement>) : void {
+        this.prenom = event.target.value;
     }
 
-    public handleNameChange (event: ChangeEvent<HTMLInputElement>) : void {
-        this.name = event.target.value;
+    public handleNomChange (event: ChangeEvent<HTMLInputElement>) : void {
+        this.nom = event.target.value;
     }
 
     public handlePseudoChange (event: ChangeEvent<HTMLInputElement>) : void {
@@ -76,7 +76,7 @@ class Inscription extends React.Component{
 
     public checkForm () : boolean {
         console.log(this.passwordVerification());
-        if (this.passwordVerification() && this.firstName !== '' && this.name !== '' && this.pseudo !=='' && this.email !== ''){
+        if (this.passwordVerification() && this.prenom !== '' && this.nom !== '' && this.pseudo !=='' && this.email !== ''){
             return true;
         }
         else{
@@ -104,8 +104,8 @@ class Inscription extends React.Component{
                 this.updateConnectStatus,
                 'POST',
                 {
-                    prenom : this.firstName,
-                    nom : this.name,
+                    prenom : this.prenom,
+                    nom : this.nom,
                     pseudo : this.pseudo,
                     email: this.email,
                     password: this.password
@@ -115,6 +115,7 @@ class Inscription extends React.Component{
         else{
             swal("Erreur de formulaire - Paramètres manquants ou mot de passe trop court ");
         }
+
         this.setState({formWasSubmitted: true});
     }
 
@@ -145,7 +146,7 @@ class Inscription extends React.Component{
                             </div>
                         </form>
                         <br/>
-                        Déja Inscrit ? <a id={"redirect-button"} onClick={this.redirectToConnectionPage}>Connecte toi ! </a>
+                        Déja Inscrit ? <a id={"redirect-button"} href={"/connexion/login"}>Connecte toi ! </a>
                     </div>
                 </div>
             </section>
