@@ -326,7 +326,7 @@ class Admin extends React.Component<any, AdminState> {
         } else {
             swal({
                 title: 'Mince !',
-                text: 'Il y a eu un problème, la fiche n\'a pas pu être supprimée, ' +
+                text: 'Il y a eu un problème, la fiche n\'a pas pu être ajoutée, ' +
                     'vérifie que tu as bien rentré tous les champs.',
                 icon: 'warning',
             });
@@ -390,8 +390,6 @@ class Admin extends React.Component<any, AdminState> {
                 swal('Ca y est, la fiche a été supprimé !', {
                     icon: 'success',
                 });
-            } else {
-                swal('Rassure-toi, rien n\'a été supprimé !');
             }
         });
     }
@@ -415,8 +413,6 @@ class Admin extends React.Component<any, AdminState> {
                 swal('C\'est bon, le message est supprimé !', {
                     icon: 'success',
                 });
-            } else {
-                swal('Pas de problème, le message est sain et sauf !');
             }
         });
     }
